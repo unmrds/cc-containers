@@ -14,6 +14,9 @@ ADD ./data/farmers_markets.csv /home/rstudio/markets/
 # per https://github.com/rocker-org/rocker/issues/246
 
 RUN apt-get update
+RUN R -e "install.packages('dplyr', repos = 'http://cran.us.r-project.org')"
+RUN R -e "install.packages('ggplot2', repos = 'http://cran.us.r-project.org')"
+RUN R -e "install.packages('ggrepel', repos = 'http://cran.us.r-project.org')"
 RUN chown -R rstudio /home/rstudio/markets
 
 # Expose port 8787 to the host machine
